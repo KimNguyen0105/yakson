@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
+var HomeController = require('../controller/HomeController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-
-  res.status(400).send({ message: "Hello Emembership!" })
-
-});
+router.get('/',HomeController.Index );
 
 module.exports = router;
