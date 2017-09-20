@@ -1,8 +1,959 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+body{
+	margin:0;
+	font-family: 'Montserrat', sans-serif;
+	background: #fff;
+}
+@font-face {
+   font-family: 'Montserrat', sans-serif;
+   
 }
 
-a {
-  color: #00B7FF;
+body a{ 
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+	transition: 0.5s all;
+	text-decoration:none;
 }
+h1,h2,h3,h4,h5,h6{
+	margin:0;	
+	font-family: 'Montserrat', sans-serif;
+}
+p{
+	margin:0;
+}
+ul,label{
+	margin:0;
+	padding:0;
+}
+body a:hover{
+	text-decoration:none;
+}
+
+.logo h1 {
+    font-size: 3.5em;
+    display: inline-block;
+   font-family: 'Montserrat', sans-serif;
+    line-height: 1em;
+}
+.logo h1 a {
+    color: #fff; 
+	text-decoration:none;
+}
+.logo h1 a:hover{
+    color: #fff;
+}
+
+/*============================= Top-nav ===================================================*/
+.top-nav {
+	z-index: 999;
+}
+.top-nav nav.navbar.navbar-default {
+    background-color: inherit;
+    border: none;
+    margin: 0;
+}
+.top-nav ul li {
+    /* margin: 0 0.5em; */
+    display: inline-block;
+}
+.top-nav .navbar-default .navbar-nav > li > a:hover, .top-nav .navbar-default .navbar-nav > li > a:focus, .top-nav ul li  a.active:before {
+    color: #5BD982;
+}
+
+.top-nav ul li a {
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+	color:black;
+	font-family: 'Montserrat', sans-serif;
+	position:relative;
+}
+.top-nav ul li a.link-kumya.active {
+    background: #ae4c56;
+	color: #fff;
+	border-radius: 20px;
+}
+.top-nav .nav > li > a:hover, .top-nav .nav > li > a:focus,.top-nav ul li a.active{
+    background: none;
+}
+/*================================ drop-down =============================================*/
+.top-nav .nav .open > a, .top-nav .nav .open > a:hover, .top-nav .nav .open > a:focus {
+    background-color: #ae4c56;
+    border: none;
+}
+.top-nav ul.dropdown-menu li a {
+    color: black;
+	font-size: 1.1em;
+}
+.top-nav ul.nav.navbar-right {
+    margin-top: .3em;
+}
+.top-nav .navbar-right .dropdown-menu {
+    left: 0;
+    right: auto;
+    margin-top: 10px;
+    min-width: 100%;
+}
+.top-nav .dropdown-menu > li > a:hover, .top-nav .dropdown-menu > li > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ae4c56;
+}
+.top-nav .navbar-right .dropdown-menu li {
+    display: block;
+}
+
+.link-kumya {
+	overflow: hidden;
+}
+.link-kumya:hover {
+	color: #fff;
+}
+.link-kumya::after {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	right: 0px;
+    border-radius: 20px;
+	z-index: 1;
+	background: #ae4c56;
+	-webkit-transform: translate3d(101%,0,0);
+	transform: translate3d(101%,0,0);
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.link-kumya:hover::after {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+.link-kumya span {
+	position: relative;
+	z-index: 9999;
+}
+.link-kumya span::before {
+	content: attr(data-letters);
+	position: absolute;
+	color: #fff;
+	left: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 0%;
+	-webkit-transition: width 0.5s;
+	transition: width 0.5s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.link-kumya:hover span::before {
+	width: 100%;
+}
+.top-nav .navbar-default .navbar-brand {
+    color: #fff;
+    font-size: 3em;
+    padding: 13px 0;
+}
+/*====================================== top-nav ======================================*/
+.top-nav nav {
+	position:fixed;
+	background:none;
+	z-index:10000;
+	width:100%;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+	padding: 40px 0;
+}
+
+.top-nav nav.navScroll {
+	background:rgba(0,0,0,0.7);
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+	color: #ff5722;
+	background-color: #fff;
+    box-shadow: 0px 2px 5px #B1B1B1;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+nav.navScroll ul li a{
+    color: #ae4c56;
+}
+nav.navScroll ul.dropdown-menu li a {
+    color: #ff5722;
+}
+nav.navScroll .logo a,nav.navScroll .logo a:hover{
+    color: #ff5722;
+}
+nav.navScroll li a.active {
+    color: #fff;
+}
+nav.navScroll a.buy{
+	color: #fff;
+}
+
+@media(max-width:767px){
+	nav {
+    	padding: 1em 2em;
+	}
+	nav.navScroll ul li a {
+	    color: #fff;
+	}
+}
+
+@media(max-width:414px){
+	nav {
+	    padding: 1em;
+	}
+}
+
+@media(max-width:375px){
+	nav {
+	    padding: 0.8em 1em;
+	}
+}
+
+@media (max-width: 767px){
+	.navbar-header.logo {
+	    padding: 0 2em;
+	}
+}
+
+@media (max-width: 767px){
+	button.navbar-toggle {
+	    background: #ae4c56;
+	    border-color: #fff;
+	    margin-right: 0;
+	}
+	.navbar-toggle .icon-bar {
+	    background: #fff;
+	}
+	div#bs-example-navbar-collapse-1 {
+	    background: rgba(0, 0, 0, 0.82);
+	    margin: 0;
+	    padding: 0;
+	}
+	ul.nav.navbar-right {
+	    /*text-align: center;*/
+	}
+	.top-nav ul li {
+	    display: block;
+	    margin: .5em 0;
+	}
+}
+
+.headerLine{
+	position: relative;
+	width: 100%;
+	overflow-x: hidden;
+	height:100%;
+	background: linear-gradient(rgba(251, 234, 234, 0.62),rgba(251, 234, 234, 0.62)),url(../images/banner-bg1.png) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+}
+.headerLine:after{
+	content: "";
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	border-bottom: 450px solid white;
+	border-left: 2425px solid transparent;
+}
+.banner{
+	padding-top: 245px;
+}
+.banner-text h3{
+  color: #4b4b4b;
+  font-weight: bold;
+    line-height: 1.5;
+    font-size: 30px;
+}
+.banner-text {
+	padding-bottom: 50px;
+}
+.banner .app-store-icon{
+	padding-bottom: 30px;
+	float: left;
+    padding-right: 25px;
+}
+.banner .google-play-icon{
+	padding-bottom: 30px;
+}
+
+.banner .mobile-banner
+{
+	z-index: 2;
+    position: relative;
+    /*text-align: -webkit-center;*/
+}
+/*==================================== about ================================*/
+#about {
+	background: url('../images/about-img.jpg') no-repeat left top;
+	background-size: 50%;
+    min-height: 665px;
+    margin-top: 30px;
+    padding-top: 50px;
+}
+#about .about-title{
+	padding-bottom: 10px;
+}
+#about .about-text{
+	text-align:justify;
+	line-height:2;
+	font-size: 16px;
+}
+.about-title{
+	margin-bottom: 30px;	
+}
+.text-last{
+	margin-bottom: 25px;
+}
+.btn-more{
+	color: white;
+	background: #ae4c56;
+	padding: 15px;
+	border-radius: 40px;
+	margin-top: 20px;
+}
+.btn-more:hover{
+	-webkit-box-shadow: 80px 0px 0 0 #fff inset , -80px 0px 0 0 #fff inset;
+	background: white;
+	border: 1px solid #ae4c56;
+	color: #ae4c56;
+}
+
+
+
+/*==================================== tinhnang ================================*/
+#tinhnang .features{
+	padding-bottom: 145px;
+}
+.tinhnang{
+	margin-top: 225px;
+}
+.tinhnang .tinhnang-title h3{
+	font-size: 30px;
+    text-align: center;
+    color: #fff;
+}
+.tinhnang .tinhnang-text-left{
+	color:white; 
+	padding-top:80px;
+}
+
+.tinhnang .tinhnang-img
+{
+	padding-top:130px;
+	text-align: -webkit-center;
+}
+.tinhnang .tinhnang-text-left-item {
+	padding-bottom:45px;
+	
+}
+.tinhnang .tinhnang-text-left-item .text-title h4{
+	padding-bottom:15px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+
+}
+.tinhnang .tinhnang-text-left-item .text{
+	line-height: 2;
+	text-align: justify;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*==================================== quytrinh ================================*/
+#quytrinh .quytrinh-title{
+	padding-bottom: 70px;
+}
+#quytrinh .quytrinh-title-text{
+	font-size: 24px;
+    padding-top: 20px;
+}
+
+#quytrinh .icon-quytrinh {
+	/*padding-bottom: 15px;*/
+	min-height: 120px;
+}
+#quytrinh .icon-quytrinh i {
+	-webkit-transition: All .2s linear;
+    -moz-transition: All .2s linear;
+    -o-transition: All .2s linear;
+    background-color: #ae4c56;
+    border: 4px solid #ae4c56;
+    border-radius: 50%;
+    color: #FFF;
+    font-size: 60px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+}
+#quytrinh .icon-quytrinh i:hover {
+    color: #ae4c56;
+    background-color: #fff;
+    cursor: default;
+}
+
+#quytrinh .icon-quytrinh i {
+    border: 4px solid #ae4c56;
+    border-radius: 50%;
+}
+
+#quytrinh .boder-quytrinh {
+
+    border: 2px solid #ae4c56;
+    border-radius: 50%;
+    padding: 69px 8px 28px 7px;
+ 	box-shadow: 0px 4px 10px #888888;
+}
+#quytrinh .arrow-down
+{
+	padding: 20px 0px 40px 90px;
+}
+.phone-mockup-quytrinh {
+	height: 100%;
+	/* position:absolute; */
+	background-position: right;
+    background-image: url(../images/ip6.png);
+    background-repeat: no-repeat;
+	z-index: 9999;
+	margin-top: 31%;
+}
+.slick-slider {
+	width: 255px;
+    padding-top: 80px;
+    margin-left: 210px;
+}
+@media (min-width: 769px){
+	.slick-prev, .slick-next {
+		display: none !important;
+	}
+}
+
+/*==================================== thongke ================================*/
+#thongke .statistical{
+	padding-bottom: 335px;
+}
+.thongke {
+    margin-top: 225px;
+}
+.thongke .thongke-title h2 {
+    color: #fff;
+    padding-bottom: 70px;
+}
+#thongke .icon-thongke {
+	min-height: 120px;
+}
+#thongke .icon-thongke i {
+	-webkit-transition: All .2s linear;
+    -moz-transition: All .2s linear;
+    -o-transition: All .2s linear;
+    background-color: #FFF;
+    border: 4px solid #FFF;
+    border-radius: 50%;
+    color: #ae4c56;
+    font-size: 60px;
+    height: 100px;
+    line-height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+}
+#thongke .icon-thongke i:hover {
+    color: #FFF;
+    background-color: #ae4c56;
+    cursor: default;
+}
+
+#thongke .icon-thongke i {
+    border: 4px solid #FFF;
+    border-radius: 50%;
+}
+
+#thongke .boder-thongke {
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    padding: 69px 8px 28px 7px;
+ 	box-shadow: 0px 4px 10px #888888;
+}
+#thongke .text-thongke .counter {
+	color: #FFF;
+    font-size: 24px;
+    padding-top: 10px;
+}
+#thongke .text-thongke .text {
+	color: #FFF;
+    font-size: 24px;
+    padding-top: 10px;
+}
+/*==================================== taiungdung ================================*/
+#taiungdung .taiungdung-title{
+	padding-bottom: 35px;
+}
+#taiungdung .taiungdung-text {
+	font-size: 16px;
+	line-height: 2;
+	padding-bottom: 50px;
+}
+#taiungdung .taiungdung-button {
+	/*padding-bottom: 60px;*/
+}
+#taiungdung .taiungdung-button .btn-app{
+	background-color: #ae4c56;
+    width: 160px;
+    height: 45px;
+    color: #FFF;
+    border-radius: 20px;
+    font-size: 17px;
+    
+     box-shadow: 0 0 1px #ccc;
+    -webkit-transition-duration: 0.5s;
+    -webkit-box-shadow: 0px 0px 0 0 #FFF inset , 0px 0px 0 0 #FFF inset;
+}
+
+#taiungdung .btn-app:hover{
+     -webkit-box-shadow: 80px 0px 0 0 #fff inset , -80px 0px 0 0 #fff inset;
+    color: #ae4c56;
+    border: 1px solid #ae4c56;
+}
+#taiungdung .taiungdung-button .btn-android{
+    background-color: #fff;
+    width: 160px;
+    height: 45px;
+    color: #FFF;
+    border-radius: 20px;
+    font-size: 17px;
+    
+     -webkit-transform-origin: 50% 50%;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    -webkit-box-shadow: 80px 0px 0 0 #ae4c56 inset , -80px 0px 0 #ae4c56 inset;
+}
+#taiungdung .btn-android:hover{
+    -webkit-box-shadow: 0px 0px 0 0 #ae4c56 inset , 0px 0px 0 #ae4c56 inset;
+    color: #ae4c56;
+    border: 1px solid #ae4c56;
+}
+
+#taiungdung .taiungdung-img {
+	position: relative;
+	z-index: 2;
+	text-align: -webkit-center;
+}
+#taiungdung .taiungdung-button .icon {
+	padding-right: 15px;
+}
+#taiungdung .taiungdung-button .btn-app {
+	float: right;
+}
+#taiungdung .taiungdung-button .btn-android {
+	margin-bottom: 60px;
+}
+
+
+/*==================================== footer ================================*/
+#footer {
+	z-index:1;
+	margin-top: -200px;
+}
+.footer{
+	margin-top: 260px;
+	min-height:435px;
+}
+#footer .logo-img h3{
+     font-size: 48px; 
+    color: #fff;
+    text-align: left;
+    margin-bottom: 17px;
+}
+
+#footer .footer-icon ul {
+	list-style-type: none;
+	overflow: hidden;
+}
+
+#footer .footer-icon ul li{
+	float: left;
+    padding: 7px;
+    margin-top: 24px;
+}
+
+#footer .footer-icon ul li a i{
+	-webkit-transition: All .2s linear;
+    -moz-transition: All .2s linear;
+    -o-transition: All .2s linear;
+    /*background-color: #FFF;*/
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    color: #FFF;
+    font-size: 20px;
+    height: 40px;
+    line-height: 35px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+    background: #ae4c56;
+}
+#footer .text-footer{
+	 font-size: 16px;
+    color: #4b4b4b;
+    text-align: left;
+    line-height: 2;
+}
+#footer .text-title h3{
+	font-size: 20px;
+	color: #4b4b4b;
+	padding: 25px 0;
+	font-weight: bold;
+}
+#footer .text a{
+	font-size: 16px;
+	color: #4b4b4b;
+	line-height: 2;
+}
+#footer .text a i{
+	font-size: 24px;
+	color: #ae4c56;
+	padding-right: 15px;
+
+}
+#footer .line-footer{
+	border: 1px solid #545454;
+	margin-top: 140px;
+
+}
+#footer .copyright {
+	color: #4b4b4b;
+	font-size: 14px;
+	padding-top: 30px;
+	padding-bottom: 135px;
+	line-height: 2;
+}
+/*==================================== Man hinh dien thoai ================================*/
+@media (min-width:220px)and ( max-width:385px){
+	#taiungdung .taiungdung-button .btn-app {
+	    float: none;
+	    margin-bottom: 20px;
+	}
+	
+	#taiungdung .taiungdung-button {
+	    text-align: -webkit-center;
+	}
+}
+@media (min-width:640px)and ( max-width:767px){
+	#about {
+	    background-size: 53% !important;
+	}
+	.gioithieu-row{
+		width: 50%;
+    	float: right;
+	}
+}
+@media (min-width:420px)and ( max-width:639px){
+	#about {
+	    background-size: 66% !important;
+	}
+}
+@media (min-width:220px)and ( max-width:767px){
+
+	#about {
+   
+	    background-size: 100%;
+	    min-height: 400px;
+	    margin-top: 80px;
+	    padding-top: 0px;
+	}
+	#tinhnang .features {
+	    padding-bottom: 0px;
+	}
+	.tinhnang {
+	    margin-top: 120px;
+	}
+	.tinhnang .tinhnang-img {
+	    padding-top: 0px;
+	}
+	#quytrinh .quytrinh-title {
+	    padding-top: 70px;
+	}
+
+	#quytrinh .quytrinh-title-text {
+	    padding-bottom: 20px;
+	    text-align: -webkit-center;
+	}
+	#thongke .statistical {
+	    padding-bottom: 100px;
+	}
+	.thongke {
+	    margin-top: 100px;
+	}
+	#thongke .text-thongke .text {
+	    padding-bottom: 25px;
+	}
+	
+	#footer {
+	    margin-top: -125px;
+	}
+	.footer {
+	    margin-top: 185px;
+	}
+	#footer .footer-icon ul {
+	    overflow: hidden;
+	}
+	#footer .text-title h3 {
+	    padding-top: 35px;
+    	padding-bottom: 16px;
+	}
+
+}
+
+@media (max-width: 420px){
+	.phone-mockup-quytrinh {
+		margin-top: 0;
+		background-position: center;
+	}
+	.slick-slider {
+		margin-left: 65px;
+	}
+	#thongke {
+		margin: 240px 0 25px !important;
+	}
+	#quytrinh .icon-quytrinh {
+		margin: 145px 0 0;
+	}
+	#text-process{
+		font-size: 25px;
+		margin-top: 20px;
+		text-align: center;
+	}
+	.slick-prev, .slick-next {
+		top: 90%;
+	}
+	.slick-prev:before, .slick-next:before {
+		font-size: 28px;
+		color: black;
+	}
+}
+@media (max-width: 375px){
+	.slick-slider {
+		margin-left: 45px;
+	}
+}
+@media (max-width: 320px){
+	.slick-slider {
+		margin-left: 18px;
+	}
+}
+@media (max-width: 768px){
+	#ed-logo{
+		width: 200px;
+	}
+}
+
+/*==================================== Man hinh iPad ================================*/
+@media (min-width:768px)and ( max-width:991px){
+	
+	.slick-slider {
+		margin-left: 25px;
+	}
+	#quytrinh .arrow-down {
+		padding: 20px 0px 40px 65px;
+	}
+
+	#about {
+	    min-height: 520px;
+	    margin-top: 70px;
+	    padding-top: 50px;
+	}
+
+	#tinhnang .features {
+	    padding-bottom: 40px;
+	}
+	.tinhnang .tinhnang-img {
+	    padding-top: 10px;
+	}
+	.tinhnang {
+	    margin-top: 150px;
+	}
+	#thongke .statistical {
+	    padding-bottom: 170px;
+	}
+	.thongke {
+	    margin-top: 150px;
+	}
+	#thongke .text-thongke .text {
+	    padding-bottom: 25px;
+	}
+	#footer {
+	    margin-top: -170px;
+	}
+	#footer .logo-img h3 {
+	    text-align: center;
+	}
+	#footer .text-footer {
+	    text-align: center;
+	}
+	#footer .footer-icon ul {
+	    padding-left: 30%;
+	    padding-bottom: 25px;
+	}
+}
+/*==================================== Man hinh iPadpro ================================*/
+@media (min-width:992px)and ( max-width:1229px){
+	.slick-slider {
+		margin-left: 120px;
+	}
+	#quytrinh .arrow-down {
+		padding: 20px 0px 40px 65px;
+	}
+
+	#tinhnang .features {
+	    padding-bottom: 80px;
+	}
+	.tinhnang .tinhnang-img {
+	    padding-top: 232px;
+	}
+}
+
+@media (min-width:2000px)and ( max-width:2652px){
+	.headerLine:after {
+	    border-bottom: 340px solid white;
+	    border-left: 3000px solid transparent;
+	}
+	.tinhnang {
+	    margin-top: 350px;
+	}
+	#tinhnang .features {
+	    padding-bottom: 280px;
+	}
+	.thongke {
+	    margin-top: 350px;
+	}
+	#thongke .statistical {
+	    padding-bottom: 600px;
+	}
+	#footer {
+	    z-index: 1;
+	    margin-top: -270px;
+	}
+	.footer {
+	    margin-top: 350px;
+	    min-height: 435px;
+	}
+	#about {
+	   
+	    background-size: 40%;
+	    min-height: 983px;
+	   
+	}
+}
+
+.line3{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	margin: 25px 0;
+	height:100%;
+	background: linear-gradient(rgba(209, 113, 117, 0.85),rgba(209, 113, 117, 0.85)),url(../images/banner-bg2.jpg) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.line3:after{
+	content: "";
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	border-bottom: 650px solid white;
+	border-left: 3000px solid transparent;
+}
+.line3:before{
+	top: 0;
+	display: block;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	border-top: 650px solid white;
+	border-left: 4000px solid transparent;
+	bottom: 489px;
+}
+
+.line7{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	max-height:100%;
+	background: linear-gradient(rgba(251, 234, 234, 0.62),rgba(251, 234, 234, 0.62)),url(../images/footer-bg.jpg) no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+}
+.line7:before{
+	top: 0;
+	display: block;
+	content: "";
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	border-top: 350px solid white;
+	border-left: 3000px solid transparent;
+	bottom: 489px;
+}
+
+/*----------------------Quy Trinh ---------------*/
+
+
+
+
+
+
