@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ADMIN PAGE </title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../css/nprogress.css" rel="stylesheet">
+
+
+    <!-- Custom Theme Style -->
+    <link href="../css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md body-content">
+    <div class="container body">
+        <div class="main_container">
+            <%- include ../partial/sidebar.ejs %>
+            <%- include ../partial/header.ejs %>
+                    <div class="right_col" role="main">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="dashboard_graph">
+                                    <div class="row x_title">
+                                        <div class="col-md-3">
+                                            <h3>Quản lý
+                                                <small>User Admin</small>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <!-- @if ($message = Session::get('success'))
+                                    <div class="alert alert-success">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                                            aria-hidden="true">&times;</span></button>
+                                        <p>{{ $message }}</p>
+                                    </div>
+                                    @endif -->
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th>User name</th>
+                                                    <th>Ngày tạo</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% users.forEach (function(t){ %>
+                                                    <tr>
+                                                        <td><%=t.username %></td>
+                                                        <td></td>
+                                                    </tr>
+                                                   
+                                               <% }) %>
+                                            </tbody>
+                                            <tfoot></tfoot>
+                                        </table>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Degsined by <a href="https://colorlib.com">Hbbsolution.com</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="../js/custom.min.js"></script>
+    <script>
+        $(".language_tab li:first").addClass("active");
+        $(".tab-content .tab-pane:first").addClass("in");
+        $(".tab-content .tab-pane:first").addClass("active");
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- top tiles -->

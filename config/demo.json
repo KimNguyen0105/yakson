@@ -1,0 +1,12 @@
+{
+    "server": {
+        "host": "http://192.168.0.29",
+        "port": 3001
+    },
+    "database": {
+        "host": "mongodb://localhost/emembership-demo"
+    },
+    "log": {
+        "level": "debug"
+    }
+}

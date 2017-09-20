@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ADMIN PAGE </title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../css/nprogress.css" rel="stylesheet">
+
+
+    <!-- Custom Theme Style -->
+    <link href="../css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md body-content">
+    <div class="container body">
+        <div class="main_container">
+            <%- include ../partial/sidebar.ejs %>
+            <%- include ../partial/header.ejs %>
+                    <div class="right_col" role="main">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="dashboard_graph">
+                                    <div class="row x_title">
+                                        <div class="col-md-3">
+                                            <h3>Quản lý
+                                                <small>Các loại thẻ</small>
+                                            </h3>
+                                        </div>
+                                    </div>
+                        
+                                    <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
+                                        <a href="<%=process.env.site_url%>/admin/card-type/0" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th width="20%">Hình ảnh</th>
+                                                    <th width="20%">Tiêu đề</th>
+                                                    <th width="30%">Nội dung</th>
+                                                    <th width="30%">Lợi ích</th>                                                    
+                                                    <th width="20%">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% cardType.forEach (function(t){ %>
+                                                    <tr>
+                                                        <td><%=t.photo %></td>
+                                                        <td><%-t.title %></td>
+                                                        <td><%-t.description %></td>
+                                                        <td><%-t.benefit %></td>
+                                                        <td>
+                                                            <a href="<%=process.env.site_url%>/admin/card-type/<%=t.id%>" class="btn btn-success">
+                                                                Chi tiết
+                                                            </a>
+                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/card-type-detele/<%=t.id%>')"
+                                                            id="#btnXoa" class="btn btn-danger">
+                                                                Xóa
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                   
+                                               <% }) %>
+                                            </tbody>
+                                            <tfoot></tfoot>
+                                        </table>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <%- include ../partial/footer.ejs %>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="../js/custom.min.js"></script>
+    <script>
+        $(".language_tab li:first").addClass("active");
+        $(".tab-content .tab-pane:first").addClass("in");
+        $(".tab-content .tab-pane:first").addClass("active");
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- top tiles -->

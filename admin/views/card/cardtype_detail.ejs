@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ADMIN PAGE </title>
+
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../../css/nprogress.css" rel="stylesheet">
+
+
+    <!-- Custom Theme Style -->
+    <link href="../../css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md body-content">
+    <div class="container body">
+        <div class="main_container">
+            <%- include ../partial/sidebar.ejs %>
+                <%- include ../partial/header.ejs %>
+                    <div class="right_col" role="main">
+                        <div class="row x_title">
+                            <div class="col-md-3">
+                                <h3>Thông tin
+                                    <small>Các loại card</small>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/card-type/<%=cardType ? cardType.id : 0%>"
+                                    method="post" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                                    <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
+                                        <a href="<%=process.env.site_url%>/admin/card-type" class="btn btn-primary" type="button">Hủy bỏ</a>
+                                        <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Tiêu đề</label>
+                                            <input type="text" class="form-control" value="<%=cardType ? cardType.title : ''%>" name="title" id="title" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nội dung</label>
+                                            <textarea class="form-control editors" name="description" id="description"><%=cardType ? cardType.description : ''%></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quyền lợi</label>
+                                            <textarea class="form-control editors" name="benefit" id="benefit"><%=cardType ? cardType.benefit : ''%></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Hình ảnh</label>
+                                            <input type="file" class="form-control" name="images" id="images" onchange="readURL(this);" />
+                                            <img id="imgF" src="../images/home/<%=cardType ? cardType.photo : ''%>" class="img-responsive">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mức điểm</label>
+                                            <input type="text" class="form-control" value="<%=cardType ? cardType.cashTarget : ''%>" name="cashTarget" id="cashTarget" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại thẻ</label>
+                                            <input type="text" class="form-control" value="<%=cardType ? cardType.type : ''%>" name="type" id="type" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hiển thị</label>
+                                            <input type="checkbox" class="form-control" name="is_default" id="is_default" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <%- include ../partial/footer.ejs %>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="../../js/custom.min.js"></script>
+    <script src="../../ckeditor/ckeditor.js"></script>
+    <script>
+        $('.editors').each(function () {
+
+            CKEDITOR.replace(this.id, {
+            });
+        });
+    </script>
+    <script>
+        $(".language_tab li:first").addClass("active");
+        $(".tab-content .tab-pane:first").addClass("in");
+        $(".tab-content .tab-pane:first").addClass("active");
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgF').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- top tiles -->

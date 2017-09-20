@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ADMIN PAGE </title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../css/nprogress.css" rel="stylesheet">
+
+
+    <!-- Custom Theme Style -->
+    <link href="../css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md body-content">
+    <div class="container body">
+        <div class="main_container">
+                <%- include ../partial/sidebar.ejs %>
+                <%- include ../partial/header.ejs %>
+                    <div class="right_col" role="main">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="dashboard_graph">
+                                    <div class="row x_title">
+                                        <div class="col-md-3">
+                                            <h3>Quản lý
+                                                <small>Quy trình</small>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
+                                        <a onclick="setProcess()" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
+                                    </div>
+                                    <div class="col-md-5">
+                                            <h3>Thông tin menu</h3>
+                                            <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/process" method="post" class="form-horizontal form-label-left"
+                                                enctype="application/x-www-form-urlencoded">
+                                                <div class="form-group">
+                                                    <label>Tiêu đề</label>
+                                                    <input hidden name="id" id="id">
+                                                    <input class="form-control" name="title" id="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Icon</label>
+                                                    <input class="form-control" name="icon" id="icon">
+                                                </div>
+                                                <div class="form-group">
+                                                        <label>Thứ tự</label>
+                                                        <input class="form-control" name="sort_order" id="sort_order">
+                                                    </div>
+                                                <div class="form-group">
+                                                    <input type="submit" class="btn btn-info" value="Cập nhật">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    <div class="col-md-7">
+                                        <table class="table table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th width="20%">Icon</th>
+                                                    <th width="20%">Tiêu đề</th>
+                                                    <th width="10%">Thứ tự</th>                                                    
+                                                    <th width="20%">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% processes.forEach (function(t){ %>
+                                                    <tr>
+                                                        <td><%-t.icon %> (<%=t.icon %>)</td>
+                                                        <td><%=t.title %></td>
+                                                        <td><%=t.sort_order %></td>
+                                                        <td>
+                                                            <a onclick="getProcess('<%=t.id%>','<%=t.title%>','<%=t.icon%>','<%=t.sort_order%>')" 
+                                                                 class="btn btn-success">
+                                                                Chi tiết
+                                                            </a>
+                                                            <a  onclick="ftDelete('<%=process.env.site_url%>/admin/process-detele/<%=t.id%>')"
+                                                            class="btn btn-danger" id="btnXoa">
+                                                                Xóa
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                   
+                                               <% }) %>
+                                            </tbody>
+                                            <tfoot></tfoot>
+                                        </table>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <%- include ../partial/footer.ejs %>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="../js/custom.min.js"></script>
+    <script>
+        $(".language_tab li:first").addClass("active");
+        $(".tab-content .tab-pane:first").addClass("in");
+        $(".tab-content .tab-pane:first").addClass("active");
+      
+        $(".language_tab li:first").addClass("active");
+        $(".tab-content .tab-pane:first").addClass("in");
+        $(".tab-content .tab-pane:first").addClass("active");
+        function getProcess(id, title, icon, sort)
+        {
+            $('#id').val(id);
+            $('#title').val(title);
+            $('#icon').val(icon);
+            $('#sort_order').val(sort);
+            
+        }
+        function setProcess()
+        {
+            $('#id').val(0);
+            $('#title').val('');
+            $('#icon').val('');
+            $('#sort_order').val(0);
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- top tiles -->
