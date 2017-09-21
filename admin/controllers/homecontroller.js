@@ -72,24 +72,10 @@ exports.UpdateAbout = function (req, res) {
         var img = files.images[0];
 
         if (img) {
-            fs.readFileSync(img.path, function (err, data) {
-                var path = "./public/images/home/" + img.originalFilename;
-                fs.writeFileSync(path, data, function (error) {
-                    if (error) {
-                        res.send(error);
-
-                    }
-                    else {
-                        About.findOne({ _id: req.params.id }, function (err1, data) {
-                            if (err1) {
-                                console.log(err1);
-                            }
-                            console.log(data.photo);
-                            fs.unlinkSync('./public/images/home/' + data.photo);
-                        });
-                    }
-                });
-            });
+            let data = fs.readFileSync(img.path);
+            let phyPath = "./public/images/home/" + img.originalFilename;
+            let realfile = fs.writeFileSync(phyPath, data);
+            let remove = fs.unlinkSync("./public/images/home/"+fields.photo);
             item.photo = img.originalFilename;
         }
         About.findByIdAndUpdate(

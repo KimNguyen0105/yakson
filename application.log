@@ -1,0 +1,549 @@
+[32m2017-09-21 09:44:51.601 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 09:44:51.629 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 09:44:51.637 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 09:44:51.642 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 09:44:51.648 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 09:44:52.154 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 09:44:53.307 db.base INFO [39m - Load ../models/news - OK
+[32m2017-09-21 09:50:46.441 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 09:50:46.448 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 09:50:46.454 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 09:50:46.456 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 09:50:46.461 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 09:50:46.565 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 09:50:47.057 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 09:50:54.881 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:50:54.882 app ERROR[39m - ERROR:
+ { Error: Cannot find module 'ejs'
+    at Function.Module._resolveFilename (module.js:469:15)
+    at Function.Module._load (module.js:417:25)
+    at Module.require (module.js:497:17)
+    at require (internal/module.js:20:19)
+    at new View (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\view.js:80:30)
+    at EventEmitter.render (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\application.js:570:12)
+    at ServerResponse.render (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\response.js:971:7)
+    at exports.Index (E:\Work\2017\NodeJs\yaksonadmin\yakson\controller\HomeController.js:5:9)
+    at Layer.handle [as handle_request] (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\index.js:335:12)
+    at next (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (E:\Work\2017\NodeJs\yaksonadmin\yakson\node_modules\express\lib\router\index.js:174:3) code: 'MODULE_NOT_FOUND' }
+[31m2017-09-21 09:50:54.890 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 500,
+  errorMessage: 'Cannot find module \'ejs\'' }
+[31m2017-09-21 09:50:54.898 app ERROR[39m - --------------------------------------
+[32m2017-09-21 09:51:21.476 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 09:51:21.482 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 09:51:21.486 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 09:51:21.490 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 09:51:21.495 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 09:51:21.585 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 09:51:22.080 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 09:51:25.055 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:51:25.055 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:51:25.059 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:51:25.062 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:51:32.343 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:51:32.346 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:51:32.347 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:51:32.350 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:51:32.352 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:51:32.353 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:51:32.355 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:51:32.358 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:51:36.209 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:51:36.209 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:51:36.210 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:51:36.213 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:51:36.215 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:51:36.216 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:51:36.217 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:51:36.219 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:51:36.223 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:51:36.224 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:51:36.226 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:51:36.227 app ERROR[39m - --------------------------------------
+[32m2017-09-21 09:52:14.482 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 09:52:14.489 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 09:52:14.495 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 09:52:14.498 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 09:52:14.502 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 09:52:14.600 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 09:52:15.141 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 09:52:19.185 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:52:19.186 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:52:19.189 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:52:19.192 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:52:19.197 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:52:19.198 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:52:19.199 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:52:19.202 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:52:19.206 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:52:19.207 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:52:19.209 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:52:19.211 app ERROR[39m - --------------------------------------
+[32m2017-09-21 09:53:02.420 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 09:53:02.427 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 09:53:02.432 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 09:53:02.434 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 09:53:02.437 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 09:53:02.527 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 09:53:03.513 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 09:53:07.299 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:53:07.300 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:53:07.306 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:53:07.308 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:53:07.324 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:53:07.324 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:53:07.326 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:53:07.328 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:53:15.718 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:53:15.719 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:53:15.720 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:53:15.722 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:53:15.724 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:53:15.725 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:53:15.726 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:53:15.730 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:53:15.735 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:53:15.736 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:53:15.738 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:53:15.740 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:53:53.951 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:53:53.953 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:53:53.955 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:53:53.959 app ERROR[39m - --------------------------------------
+[32m2017-09-21 09:55:48.922 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 09:55:48.928 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 09:55:48.935 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 09:55:48.938 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 09:55:48.942 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 09:55:49.072 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 09:55:49.589 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 09:55:53.431 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:55:53.437 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:55:53.457 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:55:53.462 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:55:53.466 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:55:53.466 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:55:53.467 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:55:53.470 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:55:53.472 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:55:53.473 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:55:53.475 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:55:53.478 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:55:53.717 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:55:53.718 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:55:53.719 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:55:53.721 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:56:01.751 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:56:01.774 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:56:01.775 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:56:01.778 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:56:01.780 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:56:01.781 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:56:01.787 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:56:01.789 app ERROR[39m - --------------------------------------
+[31m2017-09-21 09:56:02.084 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 09:56:02.086 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 09:56:02.090 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 09:56:02.097 app ERROR[39m - --------------------------------------
+[32m2017-09-21 10:05:20.426 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 10:05:20.433 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 10:05:20.442 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 10:05:20.445 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 10:05:20.450 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 10:05:20.563 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 10:05:21.097 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 10:05:24.973 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:05:24.974 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:05:24.981 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:05:24.984 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:05:24.985 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:05:24.986 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:05:24.987 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:05:24.990 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:05:25.374 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:05:25.375 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:05:25.375 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:05:25.378 app ERROR[39m - --------------------------------------
+[32m2017-09-21 10:06:09.632 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 10:06:09.638 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 10:06:09.642 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 10:06:09.644 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 10:06:09.648 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 10:06:09.737 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 10:06:10.321 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 10:06:17.460 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:06:17.462 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:06:17.466 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:06:17.471 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:06:17.474 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:06:17.476 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:06:17.477 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:06:17.480 app ERROR[39m - --------------------------------------
+[32m2017-09-21 10:07:19.611 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-21 10:07:19.618 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-21 10:07:19.622 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-21 10:07:19.624 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-21 10:07:19.628 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-21 10:07:19.723 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-21 10:07:20.254 db.base INFO [39m - Load ../models/news - OK
+[31m2017-09-21 10:07:24.302 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:24.303 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:24.310 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:24.318 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:07:24.323 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:24.323 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:24.324 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:24.327 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:07:24.341 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:24.350 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:24.352 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:24.356 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:07:30.923 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:30.924 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:30.924 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:30.927 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:07:51.783 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:51.803 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:51.804 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:51.806 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:07:51.810 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:51.811 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:51.812 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:51.815 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:07:52.073 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:07:52.074 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:07:52.075 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:07:52.076 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:08:04.076 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:08:04.080 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:08:04.082 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:08:04.106 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:08:04.128 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:08:04.131 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:08:04.133 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:08:04.135 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:08:25.297 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:08:25.298 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:08:25.300 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:08:25.304 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:08:25.310 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:08:25.310 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:08:25.312 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:08:25.314 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:10:59.404 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:10:59.405 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:10:59.411 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:10:59.414 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:10:59.428 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:10:59.430 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:10:59.431 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:10:59.432 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:11:05.926 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:11:05.927 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:11:05.928 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:11:05.928 app ERROR[39m - --------------------------------------
+[31m2017-09-21 10:11:05.930 app ERROR[39m - -------- app.js error handler --------
+[31m2017-09-21 10:11:05.930 app ERROR[39m - ERROR:
+ { code: 404,
+  message: '404 - Not Found.',
+  status: 200,
+  class: 'PromiseError' }
+[31m2017-09-21 10:11:05.932 app ERROR[39m - RESPONSE:
+ { success: false,
+  errorCode: 404,
+  errorMessage: '404 - Not Found.' }
+[31m2017-09-21 10:11:05.934 app ERROR[39m - --------------------------------------
