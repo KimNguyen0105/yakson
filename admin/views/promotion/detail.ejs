@@ -31,49 +31,43 @@
                         <div class="row x_title">
                             <div class="col-md-3">
                                 <h3>Thông tin
-                                    <small>Các loại card</small>
+                                    <small>Khuyến mãi</small>
                                 </h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/card-type/<%=cardType ? cardType.id : 0%>"
+                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/promotion/<%=promotion ? promotion.id : 0%>"
                                     method="post" class="form-horizontal form-label-left" enctype="multipart/form-data">
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                        <a href="<%=process.env.site_url%>/admin/card-type" class="btn btn-primary" type="button">Hủy bỏ</a>
+                                        <a href="<%=process.env.site_url%>/admin/promotion" class="btn btn-primary" type="button">Hủy bỏ</a>
                                         <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Tiêu đề</label>
-                                            <input type="text" class="form-control" value="<%=cardType ? cardType.title : ''%>" name="title" id="title" />
+                                            <input type="text" class="form-control" value="<%=promotion ? promotion.title : ''%>" name="title" id="title" />
                                         </div>
+                                        <div class="form-group">
+                                                <label>Địa chỉ</label>
+                                                <input type="text" class="form-control" value="<%=promotion ? promotion.location : ''%>" name="location" id="location" />
+                                                
+                                            </div>
                                         <div class="form-group">
                                             <label>Nội dung</label>
-                                            <textarea class="form-control editors" name="description" id="description"><%=cardType ? cardType.description : ''%></textarea>
+                                            <textarea class="form-control editors" name="description" id="description"><%=promotion ? promotion.description : ''%></textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Quyền lợi</label>
-                                            <textarea class="form-control editors" name="benefit" id="benefit"><%=cardType ? cardType.benefit : ''%></textarea>
-                                        </div>
+                                        
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Hình ảnh</label>
                                             <input type="file" class="form-control" name="images" id="images" onchange="readURL(this);" />
-                                            <img id="imgF" src="../../images/cardtype/<%=cardType ? cardType.photo : ''%>" class="img-responsive">
+                                            <img id="imgF" src="../../images/promotion/<%=promotion ? promotion.photo : ''%>" class="img-responsive">
                                         </div>
                                         <div class="form-group">
-                                            <label>Mức điểm</label>
-                                            <input type="text" class="form-control" value="<%=cardType ? cardType.cashTarget : ''%>" name="cashTarget" id="cashTarget" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Loại thẻ</label>
-                                            <input type="text" class="form-control" value="<%=cardType ? cardType.type : ''%>" name="type" id="type" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Hiển thị</label>
-                                            <input type="checkbox" class="form-control" name="is_default" id="is_default" />
+                                            <label>Ngày kết thúc</label>
+                                            <input type="text" class="form-control" value="<%=promotion ? promotion.end_at : ''%>" name="end_at" id="end_at" />
                                         </div>
                                     </div>
                                 </form>

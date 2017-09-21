@@ -1,22 +1,22 @@
 'use strict';
 var mongoose =require('mongoose'),
-    CardType=mongoose.model('CardType');
+    Promotion=mongoose.model('Promotion');
     var multiparty = require('multiparty');
     var fs = require("fs");
-exports.CardType=function(req, res){
-    CardType.find({}, function(err, task){
+exports.Promotion=function(req, res){
+    Promotion.find({}, function(err, task){
         if(err)
         {
             res.send(err);
         }
         else{
-            res.render('card/cardtype',{'cardType': task});
+            res.render('promotion/home',{'promotions': task});
         }
     });
 }
-exports.GetCardType=function(req, res){
+exports.GetPromotion=function(req, res){
     if (req.params.id == 0) {
-        res.render('card/cardtype_detail', { 'cardType': null });
+        res.render('promotion/detail', { 'promotion': null });
     }
     else {
         CardType.findOne({ _id: req.params.id }, function (err, task) {
@@ -25,26 +25,24 @@ exports.GetCardType=function(req, res){
             else {
                 //console.log(task);
                 //var data=JSON.stringify(task);
-                res.render('card/cardtype_detail', { 'cardType': task });
+                res.render('promotion/detail', { 'promotion': task });
             }
         });
     }
 }
-exports.PostCardType = function (req, res) {
+exports.PostPromotion = function (req, res) {
     var form = new multiparty.Form();
     form.parse(req, function (err, fields, files) {
         var item = {}
         item.title = fields.title;
         item.description =fields.description;
-        item.benefit = fields.benefit;
-        item.type = parseInt(fields.type);
-        item.is_default = fields.is_default;
-        item.cashTarget =  parseInt(fields.cashTarget);
+        item.location = fields.benefit;
+        item.end_at = parseInt(fields.type);
         var img = files.images[0];
         item.photo='';
         if (img) {
             fs.readFile(img.path, item.photo, function (err, data) {
-                var path = "./public/images/cardtype/" + img.originalFilename;
+                var path = "./public/images/promotion/" + img.originalFilename;
                 fs.writeFile(path, data, function (error) {
                     if(error){
                         console.log(error);
@@ -56,17 +54,17 @@ exports.PostCardType = function (req, res) {
         }  
         console.log(item.photo);
         if (req.params.id == 0) {
-            var cardType = new CardType(item);
-            cardType.save(function (err, task) {
+            var promotion = new Promotion(item);
+            promotion.save(function (err, task) {
                 if (err)
                     res.send(err);
                 else {
-                    res.redirect('../card-type');
+                    res.redirect('../promotion');
                 }
             });
         }
         else{
-            CardType.findByIdAndUpdate(
+            Promotion.findByIdAndUpdate(
                 {
                     _id: req.params.id,
                 },
@@ -78,21 +76,21 @@ exports.PostCardType = function (req, res) {
                     if (err)
                         res.send(err);
                     else {
-                        res.redirect('../card-type');
+                        res.redirect('../promotion');
                     }
                 });
         }
     });
 };
-exports.DeleteCardType = function (req, res) {
+exports.DeletePromotion = function (req, res) {
     //var new_task=new Topic(req.body);
-    CardType.remove(
+    Promotion.remove(
         {
             _id: req.params.id,
         },
         function (err, task) {
             if (err)
                 res.send(err);
-            res.redirect('../card-type');
+            res.redirect('../promotion');
         });
 };

@@ -5,7 +5,7 @@ var mongooes = require('mongoose'),
     Process = mongooes.model('Process'),
     Info = mongooes.model('Info'),
     Menu = mongooes.model('Menu');
-    
+
 
 var sess = {
     secret: 'hbbsolutions',
@@ -70,13 +70,27 @@ exports.UpdateAbout = function (req, res) {
         item.title = fields.title;
         item.description = fields.description;
         var img = files.images[0];
+
         if (img) {
-            fs.readFile(img.path, function (err, data) {
-                var path = "/images/home/" + img.originalFilename;
-                fs.writeFile(path, data, function (error) {
-                    item.photo = img.originalFilename;
+            fs.readFileSync(img.path, function (err, data) {
+                var path = "./public/images/home/" + img.originalFilename;
+                fs.writeFileSync(path, data, function (error) {
+                    if (error) {
+                        res.send(error);
+
+                    }
+                    else {
+                        About.findOne({ _id: req.params.id }, function (err1, data) {
+                            if (err1) {
+                                console.log(err1);
+                            }
+                            console.log(data.photo);
+                            fs.unlinkSync('./public/images/home/' + data.photo);
+                        });
+                    }
                 });
             });
+            item.photo = img.originalFilename;
         }
         About.findByIdAndUpdate(
             {
@@ -174,7 +188,7 @@ exports.DeleteFeatures = function (req, res) {
         function (err, task) {
             if (err)
                 res.send(err);
-                res.redirect('../features');
+            res.redirect('../features');
         });
 };
 
@@ -253,7 +267,7 @@ exports.DeleteProcess = function (req, res) {
         function (err, task) {
             if (err)
                 res.send(err);
-                res.redirect('../process');
+            res.redirect('../process');
         });
 };
 exports.UpdateProcess = function (req, res) {
@@ -351,7 +365,7 @@ exports.Menu = function (req, res) {
     });
 
 };
-exports.PostMenu=function(req, res){
+exports.PostMenu = function (req, res) {
     var item = {}
     item.title = req.body.title;
     item.sort_order = req.body.sort_order;
@@ -392,9 +406,9 @@ exports.DeleteMenu = function (req, res) {
         function (err, task) {
             if (err)
                 res.send(err);
-            else{
+            else {
                 res.redirect('../menu');
             }
-            
+
         });
 };

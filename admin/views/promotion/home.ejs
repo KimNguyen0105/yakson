@@ -34,13 +34,13 @@
                                     <div class="row x_title">
                                         <div class="col-md-3">
                                             <h3>Quản lý
-                                                <small>Các loại thẻ</small>
+                                                <small>Khuyến mãi</small>
                                             </h3>
                                         </div>
                                     </div>
                         
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                        <a href="<%=process.env.site_url%>/admin/card-type/0" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
+                                        <a href="<%=process.env.site_url%>/admin/promotion/0" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
                                     </div>
                                     <div class="col-md-12">
                                         <table class="table table-bordered table-responsive">
@@ -48,29 +48,25 @@
                                                 <tr>
                                                     <th width="20%">Hình ảnh</th>
                                                     <th width="20%">Tiêu đề</th>
-                                                    <th width="30%">Nội dung</th>
-                                                    <th width="30%">Lợi ích</th>    
-                                                    <th width="30%">Type</th> 
-                                                    <th width="30%">CashTarget</th> 
-                                                    <th width="30%">is_default</th> 
+                                                    <th width="30%">Địa chỉ</th>
+                                                    <th width="30%">Ngày tạo</th>    
+                                                    <th width="30%">Ngày kết thúc</th> 
                                                     <th width="20%">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% cardType.forEach (function(t){ %>
+                                                <% promotions.forEach (function(t){ %>
                                                     <tr>
                                                         <td><img src="../images/home/<%=t.photo %>" class="img-responsive"</td>
                                                         <td><%-t.title %></td>
-                                                        <td><%-t.description %></td>
-                                                        <td><%-t.benefit %></td>
-                                                        <td><%-t.type %></td>
-                                                        <td><%-t.cashTarget %></td>
-                                                        <td><%-t.is_default %></td>
+                                                        <td><%-t.location %></td>
+                                                        <td><%-t.created_at %></td>
+                                                        <td><%-t.end_at %></td>
                                                         <td>
-                                                            <a href="<%=process.env.site_url%>/admin/card-type/<%=t.id%>" class="btn btn-success">
+                                                            <a href="<%=process.env.site_url%>/admin/promotion/<%=t.id%>" class="btn btn-success">
                                                                 Chi tiết
                                                             </a>
-                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/card-type-detele/<%=t.id%>')"
+                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/promotion-detele/<%=t.id%>')"
                                                             id="#btnXoa" class="btn btn-danger">
                                                                 Xóa
                                                             </a>

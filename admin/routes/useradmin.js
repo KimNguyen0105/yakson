@@ -4,6 +4,7 @@ module.exports=function(app){
     var useradmin=require('../controllers/useradmincontroller');
     var home=require('../controllers/homecontroller');
     var card=require('../controllers/cardcontroller');
+    var promotion=require('../controllers/promotioncontroller');
     
     
 //todolist Routes
@@ -37,8 +38,13 @@ module.exports=function(app){
     //card type
     app.route('/admin/card-type').get(card.CardType);
     app.route('/admin/card-type/:id').get(card.GetCardType);
-    //app.route('/admin/card-type/:id').post(card.PostCardType);
-
+    app.route('/admin/card-type/:id').post(card.PostCardType);
+    app.route('/admin/card-type-detele/:id').get(card.DeleteCardType);
+    //promotion
+    app.route('/admin/promotion').get(promotion.Promotion);
+    app.route('/admin/promotion/:id').get(promotion.GetPromotion);
+    app.route('/admin/promotion/:id').post(promotion.PostPromotion);
+    app.route('/admin/promotion-detele/:id').get(promotion.DeletePromotion);
 
     app.route('/admin/login').get(useradmin.Login);
     app.route('/admin/login').post(useradmin.PostLogin);
