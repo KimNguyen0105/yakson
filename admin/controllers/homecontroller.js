@@ -4,8 +4,9 @@ var mongooes = require('mongoose'),
     Features = mongooes.model('Features'),
     Process = mongooes.model('Process'),
     Info = mongooes.model('Info'),
-    Menu = mongooes.model('Menu');
-
+    Menu = mongooes.model('Menu'),
+    Statistic = mongooes.model('Statistic');
+    
 
 var sess = {
     secret: 'hbbsolutions',
@@ -19,7 +20,7 @@ exports.Home = function (req, res) {
     res.render('home');
 };
 exports.CreateAbout = function (req, res) {
-
+   
     About.find({ type: 0 }, function (err, task) {
         if (err)
             res.send(err);
@@ -58,25 +59,24 @@ exports.CreateAboutPost = function (req, res) {
 };
 //59c0ca204e6c361db41ccbb6
 exports.UpdateAbout = function (req, res) {
-    //var new_task=new Topic(req.body);
-    // upload('about').single('photo')(req, res, function(err) {
-    //     if (err) {
-    //         return next(PromiseError(ErrorCode.VALIDATE_UPLOAD_FILE, err.message));
-    //     }
-    // });
     var form = new multiparty.Form();
     form.parse(req, function (err, fields, files) {
         var item = {}
         item.title = fields.title;
         item.description = fields.description;
         var img = files.images[0];
-
+       
         if (img) {
             let data = fs.readFileSync(img.path);
-            let phyPath = "./public/images/home/" + img.originalFilename;
+            let filenam=Date.now()+ img.originalFilename;
+            let phyPath = "./public/images/home/" +filenam;
             let realfile = fs.writeFileSync(phyPath, data);
-            let remove = fs.unlinkSync("./public/images/home/"+fields.photo);
-            item.photo = img.originalFilename;
+            fs.stat("./public/images/home/"+fields.photo, function (err, stats){
+                if(!err){
+                    let remove = fs.unlinkSync("./public/images/home/"+fields.photo);
+                }
+            });
+            item.photo = filenam;
         }
         About.findByIdAndUpdate(
             {
@@ -257,24 +257,36 @@ exports.DeleteProcess = function (req, res) {
         });
 };
 exports.UpdateProcess = function (req, res) {
-    var item = {}
-    item.title = req.body.title;
-    item.icon = req.body.icon;
-    item.sort_order = req.body.sort_order;
-    if (req.body.id == 0) {
+    var form = new multiparty.Form();
+    form.parse(req, function (err, fields, files) {
+        var item = {};
+        item.title = fields.title;
+        item.icon = fields.icon;
+        item.sort_order = parseInt(fields.sort_order);
+        var img = files.images[0];
+        if (img) {
+            let data = fs.readFileSync(img.path);
+            let filenam=Date.now()+ img.originalFilename;
+            let phyPath = "./public/images/home/" +filenam;
+            let realfile = fs.writeFileSync(phyPath, data);
+           
+            item.photo = filenam;
+        }
+    
+    if (req.params.id == 0) {
         var process = new Process(item);
         process.save(function (err, task) {
             if (err)
                 res.send(err);
             else {
-                res.redirect('../admin/process');
+                res.redirect('../process');
             }
         });
     }
     else {
         Process.findByIdAndUpdate(
             {
-                _id: req.body.id,
+                _id: req.params.id,
             },
             item
             , {
@@ -284,11 +296,13 @@ exports.UpdateProcess = function (req, res) {
                 if (err)
                     res.send(err);
                 else {
-                    res.redirect('../admin/process');
+                    res.redirect('../process');
                 }
             });
-    }
+    };
+});
 };
+
 //informaion
 exports.Info = function (req, res) {
     Info.findOne({}, function (err, task) {
@@ -302,17 +316,9 @@ exports.Info = function (req, res) {
 
 };
 exports.PostInfo = function (req, res) {
-    var item = {}
-    item.email = req.body.email;
-    item.phone = req.body.phone;
-    item.address = req.body.address;
-    item.facebook = req.body.facebook;
-    item.twitter = req.body.twitter;
-    item.google = req.body.google;
-    item.linkedin = req.body.linkedin;
-    item.printerest = req.body.printerest;
+    
     if (req.params.id == 0) {
-        var info = new Info(item);
+        var info = new Info(req.body);
         info.save(function (err, task) {
             if (err)
                 res.send(err);
@@ -326,7 +332,7 @@ exports.PostInfo = function (req, res) {
             {
                 _id: req.params.id,
             },
-            item
+            req.body
             , {
                 new: true
             }
@@ -394,6 +400,228 @@ exports.DeleteMenu = function (req, res) {
                 res.send(err);
             else {
                 res.redirect('../menu');
+            }
+
+        });
+};
+
+//giới thiệu công ty
+exports.AboutCompany=function(req, res){
+    About.findOne({type:1}, function(err, task){
+        if(err)
+        {
+            res.send(err);
+        }
+        else{
+            res.render('home/about_company',{'about': task});
+        }
+    });
+}
+
+exports.PostAboutCompany = function (req, res) {
+       
+            About.findByIdAndUpdate(
+                {
+                    _id: req.params.id,
+                },
+                req.body
+                , {
+                    new: true
+                }
+                , function (err, task) {
+                    if (err)
+                        res.send(err);
+                    else {
+                        res.redirect('../about-company-web');
+                    }
+                });
+        
+};
+//Điều khoản sử dụng web
+exports.TermWeb=function(req, res){
+    About.findOne({type:2}, function(err, task){
+        if(err)
+        {
+            res.send(err);
+        }
+        else{
+            res.render('home/term_web',{'term': task});
+        }
+    });
+}
+
+exports.PostTermWeb = function (req, res) {
+    if (req.params.id == 0) {
+        var about = new About(req.body);
+        about.save(function (err, task) {
+            if (err)
+                res.send(err);
+            else {
+                res.redirect('../term-web');
+            }
+        });
+    }
+    else{
+        About.findByIdAndUpdate(
+            {
+                _id: req.params.id,
+            },
+            req.body
+            , {
+                new: true
+            }
+            , function (err, task) {
+                if (err)
+                    res.send(err);
+                else {
+                    res.redirect('../term-web');
+                }
+            });
+    }   
+};
+
+//chính sách bảo mật web
+exports.SecurityWeb=function(req, res){
+    About.findOne({type:3}, function(err, task){
+        if(err)
+        {
+            res.send(err);
+        }
+        else{
+            res.render('home/security_web',{'security': task});
+        }
+    });
+}
+
+exports.PostSecurityWeb = function (req, res) {
+    if (req.params.id == 0) {
+        var about = new About(req.body);
+        about.save(function (err, task) {
+            if (err)
+                res.send(err);
+            else {
+                res.redirect('../security-web');
+            }
+        });
+    }
+    else{
+        About.findByIdAndUpdate(
+            {
+                _id: req.params.id,
+            },
+            req.body
+            , {
+                new: true
+            }
+            , function (err, task) {
+                if (err)
+                    res.send(err);
+                else {
+                    res.redirect('../security-web');
+                }
+            });
+    }   
+};
+//Câu hỏi thường gặp web
+exports.QuestionWeb=function(req, res){
+    About.findOne({type:4}, function(err, task){
+        if(err)
+        {
+            res.send(err);
+        }
+        else{
+            res.render('home/question_web',{'question': task});
+        }
+    });
+}
+
+exports.PostQuestionWeb = function (req, res) {
+    if (req.params.id == 0) {
+        var about = new About(req.body);
+        about.save(function (err, task) {
+            if (err)
+                res.send(err);
+            else {
+                res.redirect('../question-web');
+            }
+        });
+    }
+    else{
+        About.findByIdAndUpdate(
+            {
+                _id: req.params.id,
+            },
+            req.body
+            , {
+                new: true
+            }
+            , function (err, task) {
+                if (err)
+                    res.send(err);
+                else {
+                    res.redirect('../question-web');
+                }
+            });
+    }   
+};
+
+//Thống kê
+exports.Statistic = function (req, res) {
+    Statistic.find({}, function (err, task) {
+        if (err)
+            res.send(err);
+        else {
+            //console.log(task);
+            res.render('home/statistic', { 'statistic': task });
+        }
+    });
+
+};
+exports.PostStatisticWeb = function (req, res) {
+    var item = {}
+    item.title = req.body.title;
+    item.sort_order = req.body.sort_order;
+    item.quantity = req.body.quantity;
+    item.icon = req.body.icon;
+    if (req.body.id == 0) {
+        var statistic = new Statistic(item);
+        statistic.save(function (err, task) {
+            if (err)
+                res.send(err);
+            else {
+                res.redirect('../admin/statistic-web');
+            }
+        });
+    }
+    else {
+        Menu.findByIdAndUpdate(
+            {
+                _id: req.body.id,
+            },
+            item
+            , {
+                new: true
+            }
+            , function (err, task) {
+                if (err)
+                    res.send(err);
+                else {
+                    res.redirect('../admin/statistic-web');
+                }
+            });
+    }
+}
+exports.DeleteStatistic = function (req, res) {
+    //var new_task=new Topic(req.body);
+    Statistic.remove(
+        {
+            _id: req.params.id,
+        },
+        function (err, task) {
+            if (err)
+                res.send(err);
+            else {
+                res.redirect('../statistic-web');
             }
 
         });

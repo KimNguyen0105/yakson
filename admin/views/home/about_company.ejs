@@ -37,29 +37,21 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/about/<%=about[0].id%>" method="post" class="form-horizontal form-label-left"
-                                    enctype="multipart/form-data">
+                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/about-company-web/<%=about ? about.id : 0%>"
+                                    method="post" class="form-horizontal form-label-left" enctype="application/x-www-form-urlencoded">
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                        <a href="<%=process.env.site_url%>/admin/about" class="btn btn-primary" type="button">Hủy bỏ</a>
+                                        <a href="<%=process.env.site_url%>/admin/about-app" class="btn btn-primary" type="button">Hủy bỏ</a>
                                         <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Tiêu đề</label>
-                                            <input type="text" class="form-control" value="<%=about[0].title%>" name="title" id="title" />
+                                            <input type="text" class="form-control" value="<%=about ? about.title: ''%>" name="title" id="title" />
                                         </div>
                                         <div class="form-group">
                                             <label>Nội dung</label>
-                                            <textarea class="form-control editors" name="description" id="description"><%=about[0].description%></textarea>
+                                            <textarea class="form-control editors" name="description" id="description"><%=about ? about.description : ''%></textarea>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Hình ảnh</label>
-                                            <input type="file" class="form-control" name="images" id="images" onchange="readURL(this);" />
-                                        </div>
-                                        <img id="imgF" src="../images/home/<%=about[0].photo%>" class="img-responsive">
-                                        <input type="hidden" value="<%=about[0].photo%>" name="photo">
                                     </div>
                                 </form>
                             </div>
@@ -95,18 +87,7 @@
         $(".language_tab li:first").addClass("active");
         $(".tab-content .tab-pane:first").addClass("in");
         $(".tab-content .tab-pane:first").addClass("active");
-        function readURL(input) {
-
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#imgF').attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+        
     </script>
 
 </body>

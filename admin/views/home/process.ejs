@@ -40,34 +40,13 @@
                                     </div>
                                 
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                        <a onclick="setProcess()" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
+                                        <a href="<%=process.env.site_url%>/admin/process/0" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
                                     </div>
-                                    <div class="col-md-5">
-                                            <h3>Thông tin menu</h3>
-                                            <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/process" method="post" class="form-horizontal form-label-left"
-                                                enctype="application/x-www-form-urlencoded">
-                                                <div class="form-group">
-                                                    <label>Tiêu đề</label>
-                                                    <input hidden name="id" id="id">
-                                                    <input class="form-control" name="title" id="title">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Icon</label>
-                                                    <input class="form-control" name="icon" id="icon">
-                                                </div>
-                                                <div class="form-group">
-                                                        <label>Thứ tự</label>
-                                                        <input class="form-control" name="sort_order" id="sort_order">
-                                                    </div>
-                                                <div class="form-group">
-                                                    <input type="submit" class="btn btn-info" value="Cập nhật">
-                                                </div>
-                                            </form>
-                                        </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-12">
                                         <table class="table table-bordered table-responsive">
                                             <thead>
                                                 <tr>
+                                                    <th width="10%">Hình ảnh</th>
                                                     <th width="20%">Icon</th>
                                                     <th width="20%">Tiêu đề</th>
                                                     <th width="10%">Thứ tự</th>                                                    
@@ -77,11 +56,12 @@
                                             <tbody>
                                                 <% processes.forEach (function(t){ %>
                                                     <tr>
+                                                        <td><img src="../images/home/<%=t.photo %>" class="img-responsive"></td>
                                                         <td><%-t.icon %> (<%=t.icon %>)</td>
                                                         <td><%=t.title %></td>
                                                         <td><%=t.sort_order %></td>
                                                         <td>
-                                                            <a onclick="getProcess('<%=t.id%>','<%=t.title%>','<%=t.icon%>','<%=t.sort_order%>')" 
+                                                            <a href="<%=process.env.site_url%>/admin/process/<%=t.id%>" 
                                                                  class="btn btn-success">
                                                                 Chi tiết
                                                             </a>

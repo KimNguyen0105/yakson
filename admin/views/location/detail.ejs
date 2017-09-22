@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ADMIN PAGE </title>
+
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link rel="stylesheet" href="../../fileinput/css/fileinput.min.css">
+    <link href="../../css/nprogress.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+    />
+    <!-- Custom Theme Style -->
+    <link href="../../css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md body-content">
+    <div class="container body">
+        <div class="main_container">
+            <%- include ../partial/sidebar.ejs %>
+                <%- include ../partial/header.ejs %>
+                    <div class="right_col" role="main">
+                        <div class="row x_title">
+                            <div class="col-md-3">
+                                <h3>Thông tin
+                                    <small>tin tức</small>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/location/<%=location ? location.id : 0%>"
+                                    method="post" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                                    <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
+                                        <a href="<%=process.env.site_url%>/admin/location" class="btn btn-primary" type="button">Hủy bỏ</a>
+                                        <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Tên</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.name : ''%>" name="name" id="name" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Bác sĩ</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.doctor : ''%>" name="doctor" id="doctor" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Địa chỉ</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.address : ''%>" name="address" id="address" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Map</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.map : ''%>" name="map" id="map" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nội dung</label>
+                                            <textarea class="form-control editors" name="description" id="description"><%=location ? location.description : ''%></textarea>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Hotline</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.hotline : ''%>" name="hotline" id="hotline" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giờ mở cửa</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.Open : ''%>" name="Open" id="Open" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giờ đóng cửa</label>
+                                            <input type="text" class="form-control" value="<%=location ? location.Close : ''%>" name="Close" id="Close" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                         <h5>Hình ảnh</h5>
+                                         <input name="delete_img" hidden id="delete_img">
+                                            <% if(arrImage){
+                                                arrImage.forEach (function(t){ %>
+                                                <div class="col-md-3"id="Img-<%=t%>" style="position: relative;margin-bottom: 5px;">
+                                                        <a onclick="ftDeleteImage('<%=t%>')" style="position: absolute;background: #c73b3b; padding: 5px 7px;">
+                                                                <i class="fa fa-close" style="color:#fff;"></i>
+                                                            </a>
+                                                    <img src="../../images/location/<%=t%>" style="width: 100%;border: 1px #ddd solid;padding: 1px;">
+                                                </div>
+                                            <% }) } %>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                                <input name="list_img" hidden id="list_img" value="<%=location ? location.image : ''%>">
+                                            <label for="introduce" style="width:100%;">
+                                                       Thêm hình ảnh
+                                                    </label>
+                                            <input class="photos file" type="file" name="photo" multiple data-preview-file-type="text">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <%- include ../partial/footer.ejs %>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+
+    <!-- Custom Theme Scripts -->
+    <script src="../../js/custom.min.js"></script>
+    <script src="../../ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../../fileinput/js/fileinput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $('.editors').each(function () {
+
+            CKEDITOR.replace(this.id, {
+                filebrowserUploadUrl: '/uploader',
+                //filebrowserBrowseUrl:'/folder'
+            });
+        });
+    </script>
+    <script>
+        $(".language_tab li:first").addClass("active");
+        $(".tab-content .tab-pane:first").addClass("in");
+        $(".tab-content .tab-pane:first").addClass("active");
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgF').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $(document).ready(function () {
+            $(function () {
+                var dateToday = new Date();
+                $('#datetimepicker6').datetimepicker({
+                    minDate: dateToday
+                });
+            });
+            $('.photos').fileinput();
+        });
+        function ftDeleteImage(img) {
+            // $('#Img-'+img).css("display","none");
+            document.getElementById('Img-'+img).style.display = "none";
+            var t = $('#delete_img').val();
+            $('#delete_img').val(t+img+',');
+            
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- top tiles -->

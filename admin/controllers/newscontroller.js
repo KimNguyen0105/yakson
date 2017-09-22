@@ -1,77 +1,69 @@
 'use strict';
 // var moment = require('moment');
 var mongoose =require('mongoose'),
-    Promotion=mongoose.model('Promotion');
+    News=mongoose.model('News');
     var multiparty = require('multiparty');
     var fs = require("fs");
     var dateFormat = require('dateformat');
-exports.Promotion=function(req, res){
-    Promotion.find({}, function(err, task){
+exports.News=function(req, res){
+    News.find({}, function(err, task){
         if(err)
         {
             res.send(err);
         }
         else{
-            var mang2 = task.map(e => dateFormat(e.end_at, 'dd/mm/yyyy h:MM TT'))
-            // console.log(mang2);
-            //task.end_at = mang2;
-            res.render('promotion/home',{'promotions': task,'dateformat':dateFormat});
+            res.render('news/home',{'news': task,'dateformat':dateFormat});
         }
     });
 }
-exports.GetPromotion=function(req, res){
+exports.GetNews=function(req, res){
     if (req.params.id == 0) {
-        res.render('promotion/detail', { 'promotion': null });
+        res.render('news/detail', { 'news': null });
     }
     else {
-        Promotion.findOne({ _id: req.params.id }, function (err, task) {
+        News.findOne({ _id: req.params.id }, function (err, task) {
             if (err)
                 res.send(err);
             else {
-                //console.log(task);
-                //var data=JSON.stringify(task);
-                var date=dateFormat(task.end_at, 'dd/mm/yyyy h:MM TT');
-                console.log(date);
-                res.render('promotion/detail', { 'promotion': task });
+                
+                res.render('news/detail', { 'news': task });
             }
         });
     }
 }
-exports.PostPromotion = function (req, res) {
+exports.PostNews = function (req, res) {
     var form = new multiparty.Form();
     form.parse(req, function (err, fields, files) {
         var item = {}
         item.title = fields.title;
         item.description =fields.description;
-        item.location = fields.location;
-        item.end_at = fields.end_at;
         var img = files.images[0];
         item.photo='';
         if (img) {
             let data = fs.readFileSync(img.path);
             let filenam=Date.now()+ img.originalFilename;
-            let phyPath = "./public/images/promotion/" +filenam;
+            let phyPath = "./public/images/news/" +filenam;
             let realfile = fs.writeFileSync(phyPath, data);
-            fs.stat("./public/images/promotion/"+fields.photo, function (err, stats){
-                if(!err){
-                    let remove = fs.unlinkSync("./public/images/promotion/"+fields.photo);
+            fs.stat("./public/images/news/"+fields.photo, function (err1, stats){
+                if(!err1){
+                    let remove = fs.unlinkSync("./public/images/news/"+fields.photo);
                 }
             });
             item.photo = filenam;
         }  
         console.log(item.photo);
         if (req.params.id == 0) {
-            var promotion = new Promotion(item);
-            promotion.save(function (err, task) {
+            var news = new News(item);
+            news.save(function (err, task) {
                 if (err)
                     res.send(err);
                 else {
-                    res.redirect('../promotion');
+                    res.redirect('../news');
                 }
             });
         }
         else{
-            Promotion.findByIdAndUpdate(
+            News.findByIdAndUpdate(
                 {
                     _id: req.params.id,
                 },
@@ -83,21 +75,21 @@ exports.PostPromotion = function (req, res) {
                     if (err)
                         res.send(err);
                     else {
-                        res.redirect('../promotion');
+                        res.redirect('../news');
                     }
                 });
         }
     });
 };
-exports.DeletePromotion = function (req, res) {
+exports.DeleteNews = function (req, res) {
     //var new_task=new Topic(req.body);
-    Promotion.remove(
+    News.remove(
         {
             _id: req.params.id,
         },
         function (err, task) {
             if (err)
                 res.send(err);
-            res.redirect('../promotion');
+            res.redirect('../news');
         });
 };

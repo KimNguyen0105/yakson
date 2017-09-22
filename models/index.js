@@ -12,7 +12,8 @@ var Features = require('./features');
 var Process = require('./process');
 var Info = require('./info');
 var Menu = require('./menu');
-
+var App = require('./appcommon');
+var Statistic = require('./statistic');
 
 
 var PromiseError = function(code, message, status) {

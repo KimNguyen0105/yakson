@@ -43,42 +43,88 @@
                                         <a href="about" class="btn btn-primary" type="button">Hủy bỏ</a>
                                         <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" class="form-control" value="<%=info? info.email : ''%>" name="email" id="email" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Số điện thoại</label>
-                                            <input type="text" class="form-control" value="<%=info? info.phone : ''%>" name="phone" id="phone" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nội dung</label>
-                                            <textarea class="form-control editors" name="address" id="address"><%=info? info.address : ''%></textarea>
+                                    <div class="nav-tabs-custom">
+                                        <ul class="nav nav-tabs" style="margin-bottom: 20px;">
+                                            <li class="active"><a href="#tab_info" data-toggle="tab" aria-expanded="true">Thông tin</a></li>
+                                            <li class=""><a href="#tab_socail" data-toggle="tab" aria-expanded="true">Link liên kết mạng xã hội</a></li>
+                                            <li class=""><a href="#tab_link" data-toggle="tab" aria-expanded="true">Link tải</a></li>
+                                            <li class=""><a href="#tab_title" data-toggle="tab" aria-expanded="true">Tiêu để</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab_info">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.email : ''%>" name="email" id="email" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Số điện thoại</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.phone : ''%>" name="phone" id="phone" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Địa chỉ</label>
+                                                        <textarea class="form-control" rows="5" name="address" id="address"><%=info? info.address : ''%></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab_socail">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Link FaceBook</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.facebook : ''%>" name="facebook" id="facebook" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Link Facebook</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.twitter : ''%>" name="twitter" id="twitter" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Link Twitter</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.google : ''%>" name="google" id="google" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Link Linkedin</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.linkedin : ''%>" name="linkedin" id="linkedin" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Link Printerest</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.printerest : ''%>" name="printerest" id="printerest" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab_link">
+                                                <div class="col-md-8">
+
+                                                    <div class="form-group">
+                                                        <label>Link Tải Adroid</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.linkAdroid : ''%>" name="linkAdroid" id="linkAdroid" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Link Tải IOS</label>
+                                                        <input type="text" class="form-control" value="<%=info? info.linkIos : ''%>" name="linkIos" id="prinlinkIosterest" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab_title">
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <label>Tiêu đề cho header</label>
+                                                        <textarea class="form-control" rows="3" name="title_head" id="title_head"><%=info? info.title_head : ''%></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Tiêu đề cho tải dứng dụng</label>
+                                                        <textarea class="form-control" rows="3" name="title_download" id="title_download"><%=info? info.title_download : ''%></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Tiêu đề cho footer</label>
+                                                        <textarea class="form-control" rows="3" name="title_footer" id="title_footer"><%=info? info.title_footer : ''%></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label>Link FaceBook</label>
-                                            <input type="text" class="form-control" value="<%=info? info.facebook : ''%>" name="facebook" id="facebook" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Link Facebook</label>
-                                            <input type="text" class="form-control" value="<%=info? info.twitter : ''%>" name="twitter" id="twitter" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Link Twitter</label>
-                                            <input type="text" class="form-control" value="<%=info? info.google : ''%>" name="google" id="google" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Link Linkedin</label>
-                                            <input type="text" class="form-control" value="<%=info? info.linkedin : ''%>" name="linkedin" id="linkedin" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Link Printerest</label>
-                                            <input type="text" class="form-control" value="<%=info? info.printerest : ''%>" name="printerest" id="printerest" />
-                                        </div>
-                                    </div>
+
+
+
                                 </form>
                             </div>
 

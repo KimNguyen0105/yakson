@@ -36,6 +36,26 @@ var InfoSchema = new Schema({
         type: String,
         required: "Nhập link printerest",
     },
+    linkAdroid: {
+        type: String,
+        required: "Nhập link tải cho Adroid",
+    },
+    linkIos: {
+        type: String,
+        required: "Nhập link tải cho Ios",
+    },
+    title_head: {
+        type: String,
+        required: "Nhập tiêu đề cho header",
+    },
+    title_download: {
+        type: String,
+        required: "Nhập tiêu đề cho tải ứng dụng",
+    },
+    title_footer: {
+        type: String,
+        required: "Nhập tiêu đề cho header",
+    },
     Created_date: {
         type: Date,
         default: Date.now

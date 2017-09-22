@@ -15,7 +15,7 @@ var boolParser = require('express-query-boolean');
 var config = require('config');
 var log4js = require('./config/log4js');
 var log = log4js.getLogger('app');
-var port = 3000;
+var port = 8000;
 // routers
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -125,7 +125,7 @@ app.use(function(err, req, res, next) {
     log.error('--------------------------------------');
 });
 
-process.env.site_url='http://localhost:3000';
+process.env.site_url='http://localhost:8000';
 
 app.listen(port);
 module.exports = app;

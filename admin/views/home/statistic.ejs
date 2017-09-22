@@ -34,7 +34,7 @@
                                     <div class="row x_title">
                                         <div class="col-md-3">
                                             <h3>Quản lý
-                                                <small>Menu</small>
+                                                <small>Thống kê</small>
                                             </h3>
                                         </div>
                                     </div>
@@ -42,35 +42,49 @@
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
                                         <a onclick="setMenu()" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
                                     </div>
-                                    <div class="col-md-5" style="border: 1px #eee solid; padding: 15px">
-                                        <h5>Thông tin menu</h3>
-                                        <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/menu" method="post" class="form-horizontal form-label-left"
+                                    <div class="col-md-12" style="border: 1px #eee solid;margin-bottom: 20px;padding: 20px;">
+                                        <h5>Thông tin thống kê</h3>
+                                        <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/statistic-web" method="post" class="form-horizontal form-label-left"
                                             enctype="application/x-www-form-urlencoded">
-                                            <div class="form-group">
-                                                <label>Tiêu đề</label>
-                                                <input hidden name="id" id="id">
-                                                <input class="form-control" name="title" id="title">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Tiêu đề</label>
+                                                    <input hidden name="id" id="id">
+                                                    <input class="form-control" name="title" id="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Thứ tự</label>
+                                                    <input class="form-control" name="sort_order" id="sort_order">
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Thứ tự</label>
-                                                <input class="form-control" name="sort_order" id="sort_order">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Icon</label>
+                                                    <input class="form-control" name="icon" id="icon">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Số lượt thống kê</label>
+                                                    <input class="form-control" name="quantity" id="quantity">
+                                                </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="col-md-12" style="text-align: right">
                                                 <input type="submit" class="btn btn-info" value="Cập nhật">
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-md-12">
                                         <table class="table table-bordered table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th width="30%">Tiêu đề</th>
                                                     <th width="20%">Thứ tự</th>
+                                                    <th width="20%">Icon</th>
+                                                    <th width="20%">Số lượt thống kê</th>
                                                     <th width="20%">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% menu.forEach (function(t){ %>
+                                                <% statistic.forEach (function(t){ %>
                                                     <tr>
                                                         <td>
                                                             <%=t.title %>
@@ -79,11 +93,16 @@
                                                             <%=t.sort_order %>
                                                         </td>
                                                         <td>
-                                                            <a onclick="getMenu('<%=t.id%>','<%=t.title%>','<%=t.sort_order%>')" 
-                                                                class="btn btn-success">
+                                                            <%=t.icon %>
+                                                        </td>
+                                                        <td>
+                                                            <%=t.quantity %>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="getMenu('<%=t.id%>','<%=t.title%>','<%=t.sort_order%>','<%=t.icon%>','<%=t.quantity%>')" class="btn btn-success">
                                                                 Chi tiết
                                                             </a>
-                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/menu-delete/<%=t.id%>')" class="btn btn-danger" id="btnXoa">
+                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/statistic-delete/<%=t.id%>')" class="btn btn-danger" id="btnXoa">
                                                                 Xóa
                                                             </a>
                                                         </td>
@@ -119,17 +138,19 @@
         $(".language_tab li:first").addClass("active");
         $(".tab-content .tab-pane:first").addClass("in");
         $(".tab-content .tab-pane:first").addClass("active");
-        function getMenu(id, title, sort)
-        {
+        function getMenu(id, title, sort, icon, quantity) {
             $('#id').val(id);
             $('#title').val(title);
             $('#sort_order').val(sort);
+            $('#icon').val(icon);
+            $('#quantity').val(quantity);
         }
-        function setMenu()
-        {
+        function setMenu() {
             $('#id').val(0);
             $('#title').val('');
             $('#sort_order').val(0);
+            $('#icon').val('');
+            $('#quantity').val('');
         }
     </script>
 </body>

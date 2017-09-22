@@ -34,39 +34,39 @@
                                     <div class="row x_title">
                                         <div class="col-md-3">
                                             <h3>Quản lý
-                                                <small>Khuyến mãi</small>
+                                                <small>Địa chỉ</small>
                                             </h3>
                                         </div>
                                     </div>
                         
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                        <a href="<%=process.env.site_url%>/admin/promotion/0" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
+                                        <a href="<%=process.env.site_url%>/admin/location/0" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>  Thêm mới</a>
                                     </div>
                                     <div class="col-md-12">
-                                        <table class="table table-bordered table-responsive">
+                                        <table class="table table-bordered table-responsive projecttable">
                                             <thead>
                                                 <tr>
-                                                    <th width="20%">Hình ảnh</th>
-                                                    <th width="20%">Tiêu đề</th>
-                                                    <th width="20%">Địa chỉ</th>
-                                                    <th width="10%">Ngày tạo</th>    
-                                                    <th width="10%">Ngày kết thúc</th> 
+                                                    <th width="10%">Hình ảnh</th>
+                                                    <th width="20%">Tên</th>
+                                                    <th width="20%">Bác sĩ </th>
+                                                    <th width="20%">Địa chỉ </th>
+                                                    <th width="20%">Số điện thoại</th>
                                                     <th width="20%">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <% promotions.forEach (function(t){ %>
+                                                <% location.forEach (function(t){ %>
                                                     <tr>
-                                                        <td><img src="../images/promotion/<%=t.photo %>" class="img-responsive"</td>
-                                                        <td><%-t.title %></td>
-                                                        <td><%-t.location %></td>
-                                                        <td><%=dateformat(t.create_at, 'dd/mm/yyyy') %></td>
-                                                        <td><%=dateformat(t.end_at, 'dd/mm/yyyy') %></td>
+                                                        <td><img src="../images/location/<%=t.image %>" class="img-responsive"</td>
+                                                        <td><%=t.name %></td>
+                                                        <td><%=t.doctor %></td>
+                                                        <td><%=t.address %></td>
+                                                        <td><%=t.hotline %></td>
                                                         <td>
-                                                            <a href="<%=process.env.site_url%>/admin/promotion/<%=t.id%>" class="btn btn-success">
+                                                            <a href="<%=process.env.site_url%>/admin/location/<%=t.id%>" class="btn btn-success">
                                                                 Chi tiết
                                                             </a>
-                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/promotion-detele/<%=t.id%>')"
+                                                            <a onclick="ftDelete('<%=process.env.site_url%>/admin/location-delete/<%=t.id%>')"
                                                             id="#btnXoa" class="btn btn-danger">
                                                                 Xóa
                                                             </a>
@@ -98,15 +98,15 @@
     <script src="../js/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-
+    <!-- FastClick -->  
+    <script src="../js/jquery.dataTables.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../js/custom.min.js"></script>
     <script>
         $(".language_tab li:first").addClass("active");
         $(".tab-content .tab-pane:first").addClass("in");
         $(".tab-content .tab-pane:first").addClass("active");
-
+        $(".projecttable").DataTable();
     </script>
 </body>
 

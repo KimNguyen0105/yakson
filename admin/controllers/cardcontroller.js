@@ -4,6 +4,7 @@ var mongoose =require('mongoose'),
     var multiparty = require('multiparty');
     var fs = require("fs");
 exports.CardType=function(req, res){
+    
     CardType.find({}, function(err, task){
         if(err)
         {
@@ -96,3 +97,5 @@ exports.DeleteCardType = function (req, res) {
             res.redirect('../card-type');
         });
 };
+
+

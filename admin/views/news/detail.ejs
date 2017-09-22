@@ -31,32 +31,27 @@
                         <div class="row x_title">
                             <div class="col-md-3">
                                 <h3>Thông tin
-                                    <small>Khuyến mãi</small>
+                                    <small>tin tức</small>
                                 </h3>
                             </div>
                         </div>
                         <div class="row">
                            
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/promotion/<%=promotion ? promotion.id : 0%>"
+                                <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/news/<%=news ? news.id : 0%>"
                                     method="post" class="form-horizontal form-label-left" enctype="multipart/form-data">
                                     <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                        <a href="<%=process.env.site_url%>/admin/promotion" class="btn btn-primary" type="button">Hủy bỏ</a>
+                                        <a href="<%=process.env.site_url%>/admin/news" class="btn btn-primary" type="button">Hủy bỏ</a>
                                         <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Tiêu đề</label>
-                                            <input type="text" class="form-control" value="<%=promotion ? promotion.title : ''%>" name="title" id="title" />
+                                            <input type="text" class="form-control" value="<%=news ? news.title : ''%>" name="title" id="title" />
                                         </div>
                                         <div class="form-group">
-                                                <label>Địa chỉ</label>
-                                                <input type="text" class="form-control" value="<%=promotion ? promotion.location : ''%>" name="location" id="location" />
-                                                
-                                            </div>
-                                        <div class="form-group">
                                             <label>Nội dung</label>
-                                            <textarea class="form-control editors" name="description" id="description"><%=promotion ? promotion.description : ''%></textarea>
+                                            <textarea class="form-control editors" name="description" id="description"><%=news ? news.description : ''%></textarea>
                                         </div>
                                         
                                     </div>
@@ -64,18 +59,9 @@
                                         <div class="form-group">
                                             <label>Hình ảnh</label>
                                             <input type="file" class="form-control" name="images" id="images" onchange="readURL(this);" />
-                                            <img id="imgF" src="../../images/promotion/<%=promotion ? promotion.photo : ''%>" class="img-responsive">
+                                            <img id="imgF" src="../../images/news/<%=news ? news.photo : ''%>" class="img-responsive">
+                                            <input type="text" hidden name="photo" id="photo" />
                                         </div>
-                                        
-                                        <div class="form-group">
-                                                <label>Ngày kết thúc</label>
-                                                <div class='input-group date' id='datetimepicker6'>
-                                                    <input type='text' value="<%=promotion ? promotion.end_at : ''%>"  name="end_at" id="end_at" class="form-control" required>
-                                                    <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                </div>
-                                            </div>
                                     </div>
                                 </form>
                             </div>
@@ -106,6 +92,8 @@
         $('.editors').each(function () {
 
             CKEDITOR.replace(this.id, {
+                filebrowserUploadUrl: '/uploader',
+                //filebrowserBrowseUrl:'/folder'
             });
         });
     </script>

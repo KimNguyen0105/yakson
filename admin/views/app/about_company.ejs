@@ -11,15 +11,15 @@
     <title>ADMIN PAGE </title>
 
     <!-- Bootstrap -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../../css/nprogress.css" rel="stylesheet">
+    <link href="../css/nprogress.css" rel="stylesheet">
 
 
     <!-- Custom Theme Style -->
-    <link href="../../css/custom.min.css" rel="stylesheet">
+    <link href="../css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md body-content">
@@ -30,40 +30,29 @@
                     <div class="right_col" role="main">
                         <div class="row x_title">
                             <div class="col-md-3">
-                                <h3>Thêm quy trình</h3>
+                                <h3>Quản lý
+                                    <small>Giới thiệu</small>
+                                </h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/process/<%=processes ? processes.id : 0%>"
-                                    method="post" class="form-horizontal form-label-left" enctype="multipart/form-data">
+                                    <form id="frAbout" data-parsley-validate action="<%=process.env.site_url%>/admin/about-company-web/<%=about ? about.id : 0%>"
+                                    method="post" class="form-horizontal form-label-left" enctype="application/x-www-form-urlencoded">
                                   <div class="col-md-12" style="border: 1px #eee solid; background-color: #fff; padding: 10px; margin-bottom: 10px">
-                                      <a href="<%=process.env.site_url%>/admin/process" class="btn btn-primary" type="button">Hủy bỏ</a>
+                                      <a href="<%=process.env.site_url%>/admin/about-company" class="btn btn-primary" type="button">Hủy bỏ</a>
                                       <button type="submit" id="btnSave" class="btn btn-success">Lưu</button>
                                   </div>
                                   <div class="col-md-8">
                                       <div class="form-group">
                                           <label>Tiêu đề</label>
-                                          <input type="text" class="form-control" value="<%=processes ? processes.title : ''%>" name="title" id="title"/>
+                                          <input type="text" class="form-control" value="<%=about ? about.title : ''%>" name="title" id="title"/>
                                       </div>
-                                      <div class="form-group">
-                                            <label>Thứ tự</label>
-                                            <input class="form-control" value="<%=processes ? processes.sort_order : ''%>" name="sort_order" id="sort_order">
-                                        </div>
-                                      <div class="form-group">
-                                            <label>Icon</label>
-                                            <input type="text" class="form-control" value="<%=processes ? processes.icon : ''%>" name="icon" id="icon"/>
-                                        </div>
-                                    </div>
-                                 
-                                  <div class="col-md-4">
                                         <div class="form-group">
-                                                <label>Hình ảnh</label>
-                                                <input type="file" class="form-control" name="images" id="images" onchange="readURL(this);"/>
+                                                <label>Nội dung</label>
+                                                <textarea class="form-control editors" name="description" id="description"><%=about ? about.description : ''%></textarea>
                                         </div>
-                                        <img id="imgF" src="../../images/home/<%=processes ? processes.photo : ''%>"" class="img-responsive">
-                                        <input type="hidden" value="<%=processes ? processes.photo : ''%>" name="photo"> 
-                                    </div>
+                                  </div>
                               </form>
                             </div>
 
@@ -79,14 +68,14 @@
     </div>
 
     <!-- jQuery -->
-    <script src="../../js/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- FastClick -->
 
     <!-- Custom Theme Scripts -->
-    <script src="../../js/custom.min.js"></script>
-    <script src="../../ckeditor/ckeditor.js"></script>
+    <script src="../js/custom.min.js"></script>
+    <script src="../ckeditor/ckeditor.js"></script>
     <script>
         $('.editors').each( function () {
     

@@ -547,3 +547,17 @@
   errorCode: 404,
   errorMessage: '404 - Not Found.' }
 [31m2017-09-21 10:11:05.934 app ERROR[39m - --------------------------------------
+[32m2017-09-22 16:20:22.454 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-22 16:20:22.461 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-22 16:20:22.466 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-22 16:20:22.468 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-22 16:20:22.472 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-22 16:20:22.572 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-22 16:20:23.007 db.base INFO [39m - Load ../models/news - OK
+[32m2017-09-22 16:21:03.289 db.base INFO [39m - Load ../models/card - OK
+[32m2017-09-22 16:21:03.297 db.base INFO [39m - Load ../models/promotion - OK
+[32m2017-09-22 16:21:03.302 db.base INFO [39m - Load ../models/comment - OK
+[32m2017-09-22 16:21:03.305 db.base INFO [39m - Load ../models/deviceToken - OK
+[32m2017-09-22 16:21:03.309 db.base INFO [39m - Load ../models/location - OK
+[32m2017-09-22 16:21:03.405 db.base INFO [39m - Load ../models/cardType - OK
+[32m2017-09-22 16:21:03.835 db.base INFO [39m - Load ../models/news - OK
